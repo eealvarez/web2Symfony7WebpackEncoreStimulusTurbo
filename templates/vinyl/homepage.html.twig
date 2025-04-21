@@ -36,11 +36,14 @@
 				</svg>
 			</div>
 			<div class="col-12 col-md-8 ps-5">
-				<h2 class="mb-4">Servicios que ofrece Infunisa:</h2>
+
+				{# <div data-controller="hello"></div> #}
+				{# <div {{ stimulus_controller('hello') }}></div> #}
+					<h2 class="mb-4"> Servicios que ofrece Infunisa:</h2>
 				{% for plan in planes %}
-					<div class="song-list">
+					<div class="song-list" {{ stimulus_controller('song-controls') }}>
 						<div class="d-flex mb-3">
-							<a href="#">
+							<a href="#" {{ stimulus_action('song-controls', 'play') }}>
 								<i class="fas fa-play me-3"></i>
 							</a>
 							<span class="song-details">{{ plan.nombre }}
