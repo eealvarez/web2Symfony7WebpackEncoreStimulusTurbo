@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	INFUNISA
+{% endblock %}
+
+{% block body %}
+
+	<h1>{{ title }}</h1>
+
+	<div>
+		{{ 'Servcios de Infunisa:' | upper}}
+		{# Los filtros se pueden concatenar, por ejemplo, |upper|lower #}
+	</div>
+
+	{# Hardcoding #}
+
+	{# {{ dump(servicios) }} #}
+	{# {{ dump() }} #}
+	{# solo en twig se puede usar dump() sin argumentos #}
+
+		<ul style="list-style-type:circle"> {% for servicio in servicios %}
+			<li>
+				{{ servicio.tipoServicio }}
+				-
+				{{ servicio.costo }}
+			</li>
+		{% endfor %}
+
+	</ul>
+{% endblock %}
